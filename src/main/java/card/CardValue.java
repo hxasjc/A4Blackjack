@@ -15,10 +15,27 @@ public enum CardValue {
     QUEEN("Queen", 10, " Q"),
     KING("King", 10, " K");
 
+    /**
+     * A name that is much more reader friendly
+     */
     public String normalName;
+
+    /**
+     * The numeric value of the card
+     */
     public int cardValue;
+
+    /**
+     * 2 character string representing the card
+     */
     public String displayString;
 
+    /**
+     * It's a constructor
+     * @param normalName A name that is much more reader friendly
+     * @param cardValue The numeric value of the card
+     * @param displayName 2 character string representing the card
+     */
     private CardValue(String normalName, int cardValue, String displayName) {
         this.normalName = normalName;
         this.cardValue = cardValue;
