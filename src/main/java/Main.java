@@ -66,7 +66,7 @@ public class Main {
         boolean hitLoop = true;
         while (hitLoop) {
             ActionChoice playerChoice = getPlayerChoice();
-            switch (playerChoice) {
+            /*switch (playerChoice) {
                 case HIT -> {
                     playerHand.add(pickCard());
                     HandMethods.drawHand(playerHand);
@@ -76,6 +76,16 @@ public class Main {
                     return "fold";
                 }
                 default -> hitLoop = false;
+            }*/
+            switch (playerChoice) {
+                case HIT:
+                    playerHand.add(pickCard());
+                    HandMethods.drawHand((playerHand));
+                    break;
+                case FOLD:
+                    return "fold";
+                default:
+                    hitLoop = false;
             }
             if (getHandValue(playerHand) > 21) {
                 return "bust";
@@ -157,13 +167,23 @@ public class Main {
 
         String playerTurnResult = playerTurn();
 
-        switch (playerTurnResult) {
+        /*switch (playerTurnResult) {
             case "fold" -> System.out.println("You lost because you folded");
             case "bust" -> System.out.println("You lost because you had a hand value over 21");
             case "continue" -> {
                 //TODO: dealer turn
                 dealerTurn();
             }
+        }*/
+        switch (playerTurnResult) {
+            case "fold":
+                System.out.println("You lost because you folded");
+                break;
+            case "bust":
+                System.out.println("You lost because you had a hand value over 21");
+                break;
+            case "continue":
+                dealerTurn();
         }
 
         System.out.println("Dealer's hand");
